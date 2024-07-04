@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <h1>OpenWeather API: <span class="fancy">Weather App</span></h1>
+    <form method="POST">
+      <label for="city">Enter City:</label>
+      <input type="text" id="city" name="city" required />
+      <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather and temp and city %}
+    <div
+      class="weather-box"
+      style="background-image: url('{{ url_for('static', filename=background_image) }}');"
+    >
+      <h2>The weather in {{ city }} is: {{ weather }}</h2>
+      <h2>The temperature in {{ city }} is: {{ temp }}ºC</h2>
+    </div>
+    {% elif error %}
+    <h2>{{ error }}</h2>
+    {% endif %}
+  </body>
+</html>
