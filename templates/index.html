@@ -22,8 +22,9 @@
       class="weather-box"
       style="background-image: url('{{ url_for('static', filename=background_image) }}');"
     >
-      <h2>The weather in {{ city }} is: {{ weather }}</h2>
-      <h2>The temperature in {{ city }} is: {{ temp }}ºC</h2>
+      <h2>{{ city }}</h2>
+      <h2>The weather is: {{ weather }}</h2>
+      <h2>The temperature is: {{ temp }}ºC</h2>
     </div>
     {% elif error %}
     <h2>{{ error }}</h2>
