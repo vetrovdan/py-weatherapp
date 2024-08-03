@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template
 import requests
+from urllib.parse import quote as url_quote
+
 
 app = Flask(__name__)
 key = '938f3cb89e3aaf8567775472b7140cd3'
